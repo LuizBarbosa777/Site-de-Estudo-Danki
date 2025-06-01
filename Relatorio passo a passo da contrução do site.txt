@@ -1,0 +1,480 @@
+Passos da criação da land page danki
+
+
+***** 1 passo *****
+Criação da estrutura do HTML através do comando:
+
+"! + enter"
+________________________________________________________________________________
+
+***** 2 passo *****
+Mudança de título do site na tag <tittle>
+"<tittle> land page danki code </tittle>
+________________________________________________________________________________
+***** 3 passo *****
+
+Dentro da tag bory, eu crio uma tag <div>, crio uma classe e a chamo de "header":
+
+<div class="header">
+
+</div><!--header-->
+________________________________________________________________________________
+***** 4 passo *****
+Ir no style.css e resetar o documento usando as tags:
+
+*{
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+}
+
+________________________________________________________________________________
+***** 5 passo *****
+Criação de classe "center" no css, antes mesmo de faze-la no html, se preocupando na dimensão/largura do site:
+
+.center{
+width: 1280px;
+margin: 0 auto;
+}
+________________________________________________________________________________
+***** 6 passo *****
+Edição da classe "header" no css, criando tamanho especifico de largura, altura e cor de fundo sendo #212343;
+
+.header{
+width: 100%;
+height: 60px;
+background-color: #212343;
+}
+
+________________________________________________________________________________
+***** 7 passo *****
+Criação da tag de "<link/>" entre o HTML e CSS, Estruta da tag: Href, Type, Rel:
+
+<link href="css/style.css" type="text/css" rel="stylesheet"/>
+
+________________________________________________________________________________
+***** 8 passo *****
+Dentro da tag "<div class="header">, O Guilherme digita a palavra "oi", para ver o posicionamento da palavra no site, logicamente deu canto esquerdo.
+
+"oi"
+
+________________________________________________________________________________
+***** 9 passo *****
+Lembra da criação/edição de uma classe que até então não existia no html? No passo 5?
+A criação da classe: <div class="center"> surge agora dentro da classe <div class="header">
+
+<div class="center">
+
+</div><!--center-->
+
+________________________________________________________________________________
+***** 10 passo *****
+Digitar a palavra "oi" dentro da classe: <div classe="center"> para ver a centralização 
+da div, dentro do contexto criado.
+
+________________________________________________________________________________
+***** 11 passo *****
+Criação da logo do site através da tag de imagem <img src="images/logo.png" />
+
+
+________________________________________________________________________________
+***** 12 passo *****
+Edição/estilização do espaçamento da logo dentro da classe container <div class="header"> e como fazer a declaração no css:
+
+.header img{
+margin: 15px;
+}
+
+________________________________________________________________________________
+***** 13 passo *****
+Criação da div classe container banner --> <div class="container-banner">
+
+<div class="container-banner">
+
+</div><!--container-banner-->
+
+________________________________________________________________________________
+***** 14 passo *****
+Criação da classe <div class="center">, que é a classe de item flex dentro do container
+
+________________________________________________________________________________
+***** 15 passo *****
+Estilização da classe container-banner dentro do css: largura, altura e imagem de fundo
+ATENÇÃO A PROPRIEDADE 
+>>>>>>>> background-image:url('../images/header_bg.png' <<<<<<<<<
+Imagens que serviram de fundo do site são chamados por uma boa sintaxe/semantica atraves dessa tag
+
+.container-banner{
+width: 100%;
+height: 557px;
+background-image:url('../images/header_bg.png'
+}
+________________________________________________________________________________
+***** 16 passo *****
+É inserido dentro da classe container-banner duas propriedades que são técnicas de responisividade em sites responsivos
+
+/*Técnicas responsivo*/
+background-size: cover;
+background-position: center;
+
+Não haverá mudanças de imendiato, mas ficará melhor posicionado o site futuramente
+
+________________________________________________________________________________
+***** 17 passo *****
+Criação de formulario atraves da classe <div class="form"> dentro da classe center no html
+
+ <div class="form">
+
+ <div><!--form-->
+________________________________________________________________________________
+***** 18 passo *****
+Estilização da div do formulário à <div class="form"> no css:
+
+.form{
+width: 400px;
+heigth: 100%;
+background-color: white;
+}
+
+ATENÇÃO: Aqui ocorreu um erro no código, pois não houve a estilização necessária por conta de três fatores:
+
+1° fator: Aparentemente o css não trabalha bem com porcentagem e pixels na mesma classe como forma de estilização.
+2° fator: É necessário declarar em porcentagem no começo do scopo do css depois do reset a porcentagem de espaçamento em porcentagem 
+do html e do css, dessa maneira:
+3° fator: É necessário também estilizar a classe <div class="center"> com height/altura de 100%, pois ainda não tinha forma em porcentagem. Para que
+a classe .form do formulario, possa herdar essa carateristica da classe .center (fazendo assim, a classe center ser a classe pai agora). 
+
+
+>>> OBS: Quando estilizamos com PORCENTAGEM é necessário que tanto a classe PAI e a classe FILHO, estejam com ambas propriedades iguais declaradas em %. 
+
+>>2° fator
+html,body{
+height: 100%
+}
+
+>>3° fator
+.container-banner > .center{
+height 100%
+}
+
+________________________________________________________________________________
+***** 19 passo *****
+Há duas maneiras de colocar o formulário a direita do site, pois está esquerda
+
+1° maneira
+Na na classe .form coloque a propriedade "float" com valor "right":
+
+.form{
+float: right;
+}
+
+2° maneira (escolhida pelo Prof)
+Na classe .form coloque a propriedade "display" com valor "inline-block" e coloque na classe .container-banner > .center a 
+propriedade "text-align" com o valor "right"
+
+.form
+{
+display:inline-block
+}
+
+.container-banner > .center
+{
+text-align:right
+}
+______________________________________________________________________________
+
+<--fim Projeto #1 - Iniciando e proposta-->
+______________________________________________________________________________
+
+<--inicio Projeto #1 - Formulário-->
+______________________________________________________________________________
+
+________________________________________________________________________________
+
+***** 20 passo *****
+O formulário está com um efeito(ou precisa estar com efeito), onde ele pega um pouco do espaço do header,container-banner e embaixo.
+
+position -- nome da técnica usada pelo Guilherme
+
+Ele usa a função "Calc" no css, dessa maneira indo na classe .form do css:
+
+antes estava assim
+
+.form {
+height: 100%;
+}
+
+depois fica assim
+
+.form {
+height: calc(100% + 30px);
+float: right; 
+onde a altura vai pegar o todo (100%), mais 30px onde vai passar a borda
+}
+
+Até então, apenas a parte de baixo do formulário, está ultrapassando o container 
+banner e pegando um pouco do footer
+
+Depois um positio relative, para poder manipular as propriedades, top, left,bottom e height
+
+.form{
+position: relative;
+top:-15px
+}
+
+com isso, agora o formulário pega o espaço de cima também.
+
+________________________________________________________________________________
+
+***** 21 passo *****
+Criar agora a borda que envolve o formulário e sua cor.
+
+.form{
+border:8px solid #ccc;
+}
+
+________________________________________________________________________________
+
+***** 22 passo *****
+Agora o texto de titulo do formulario
+dentro 
+
+<div class="form">
+
+<h2> Preencha o formulario e inicie a sua caminhada para virar um webmaster! <h2>
+
+<div><!--form-->
+
+________________________________________________________________________________
+
+***** 23 passo *****
+Na estilização do titulo h2 será assim:
+
+.form h2{
+font-weight: normal;
+color: #999999
+font-size 21px
+}
+
+/*Para separar e dar espaço entre o titulo e a parte superio do formulário, usa-se a
+propriedade padding com o valor de 10px dento da classe .form*/
+
+.form{
+padding:10px
+}
+
+
+________________________________________________________________________________
+
+***** 24 passo *****
+O guilherme depois escolhe mudar o estilo da fonte, atraves de um arquivo. Mas
+também deixa claro a opção de mudar o estilo atraves do google fonts.
+Nesse projeto, vamos fazer por aquivo, criamos a pasta "fonts" e declaramos dessa
+maneira para que se integre ao projeto:
+
+
+@font-face{
+    src:url('../fonts/OpenSans-Light.ttf');
+    font-family: "Open Sans";
+}
+
+essa propriedade fica no top do código, logo após a declaração do html e body com 
+height em 100%
+
+
+VAMOS NO "*" do documento e declaramos o estilo dessa fonte para todo o documento:
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Open Sans";
+}
+
+________________________________________________________________________________
+
+***** 25 passo *****
+CRIAÇÃO DOS INPUTS:
+
+Dentro da classe form no html depois do h2, criaremos uma <form><form/>, uma div class chamada 
+input-container, uma tag <espan></span> com o texto "Nome*" e uma tag 
+<input type="text" name="nome">.
+
+<form>
+ <div class="input-container">
+  <span>Nome*</span>
+  <input type="text" name="nome" required/>
+ <div><!--input-container-->
+<form>
+
+Obs:o atributo "required" no HTML. Ele é usado em formulários para indicar 
+que um campo é obrigatório
+
+________________________________________________________________________________
+
+***** 26 passo *****
+Ele como estilizar os inputs.
+
+1° Criar espaço entre o span e h2, no css dessa maneira:
+
+.input-container{
+ margin-top: 20px;
+}
+
+2° Para que ocorra quebra de linha entre o span e o input, é necessário declarar
+de novo dessa maneira:
+
+.input-container span{
+display:inline-bloco; (Permite criar whidth, height, margin, padding. básicamente 
+permite formatar como se fosse um botão estilzado)
+
+width: 100% (Logo em seguida, ocorre quebra linha.)
+color: #BBBBBB;
+font-size: 17px;
+font-weight: bold; (significa literalmente peso da fonte, "quão grosso é o texto" bold = valor que ativa o negrito)
+
+}
+
+Inline é um tipo de elemento que fica na mesma linha
+
+________________________________________________________________________________
+
+***** 26 passo *****
+
+Criar no html, todos os inputs
+
+               <div class="input-container">
+                    <span>Nome*</span>
+                    <input type="text" name="nome" required/>
+                    <!--o atributo "required" no HTML. Ele é usado em formulários para indicar 
+                    que um campo é obrigatório.-->
+                </div><!--input-container-->
+                
+                <div class="input-container">
+                    <span>E-mail*</span>
+                    <input type="text" name="nome" required/>
+                </div><!--input-container-->
+
+                <div class="input-container">
+                    <span>Telefone*</span>
+                    <input type="text" name="nome" required/>
+                </div><!--input-container-->
+
+________________________________________________________________________________
+***** 27 passo *****
+Estilização do input type text:
+
+/*Quando coloca logo [type=text], especifica ao seletor qual parte será estilizada, e não 
+toda a tag input, mas assim a parte de escopo dessa tag*/
+
+
+.input-container input[type=text]{
+    margin-top: 8px;
+    width: 344px;
+    height:55px;
+    border: 1px solid #ccc;
+}
+
+________________________________________________________________________________
+***** 28 passo *****
+
+Criação da tag p dentro do form depois da classe telefone
+
+<p class="warning">*Campos obrigatórios</p>
+
+
+A estilização dessa tag, ocorre com a incrementação dessa classe no span
+
+
+.input-container span,.form p{
+
+}
+
+
+________________________________________________________________________________
+***** 29 passo *****
+
+Criação do botão:
+
+<input type="submit" name="acao" value="Enviar"/>
+
+________________________________________________________________________________
+***** 30 passo *****
+Espaçamento da tag
+
+.form p{
+    margin: 20px 0;
+}
+
+________________________________________________________________________________
+***** 31 passo *****
+
+Estilização do Botão Enviar.
+
+Deve chamar a tag input dessa maneira, lembrando sempre de especificar o type/tipo
+entre chaves [].
+antes da tag, vem a classe ou a tag onde ela está inserida
+
+.form input [type=submit]{
+color: white; (mudar a cor de texto para branco)
+font-size: 25px (mudar o tamanho da fonte)
+width: 280px; (altera à largura)
+height: 56px; (altera à altura)
+background-color: #363a6d; (altera à cor de fundo)
+display: inline-block; (permite liberdade de alinhamento, mas deve agir junto com a propriedade text-align que deve estar declarada anteriormente e uma classe pai)
+}
+
+HTML:
+
+<div class="input-submit-container">
+  <input type="submit" name="acao" value="Enviar"/> 
+</div><!--input-submit-container-->
+
+
+CSS:
+
+.input-submit-container{ /*2°PASSO:chamar classe container*/
+    text-align: center; /*3°PASSO: alinhar item-flex*/
+}
+
+.form input[type=submit]{
+    color: white;
+    font-size: 25px;
+    width: 280px;
+    height: 56px;
+    background-color: #363A6D;
+    display: inline-block; /*1°PASSO: inline ---> inline-block*/
+    border-top: 0;
+    border-right: 0;
+    border-left: 0;
+    cursor: pointer; /*efeito mãozinha, clicavel*/
+    border-bottom: 5px solid #4a5097; /*borda inferior estilzada*/
+}
+
+.form input[type=submit]:hover{ (efeito de mudança de cor)
+    background-color: #323665;
+}
+
+________________________________________________________________________________
+***** 32 passo ***** (Sessões)
+
+Aplicar efeito de opacidade:
+
+1* criar uma nova classe dentro de <div class="center"> chamada
+<div class="container-list"> 
+
+</div><!--container-list--> 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
